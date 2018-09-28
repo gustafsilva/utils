@@ -9,14 +9,13 @@ describe('Array Filter By (filterBy)', () => {
   const employeeTwoLevel = [
     { name: { first: 'Alice', last: 'Citizen' }, role: 'developer' },
     { name: { first: 'Bob', last: 'Dole' }, role: 'developer' },
-    { name: { first: 'Alice', last: 'Other' }, role: 'analyst' },
+    { name: { first: 'Alice', last: 'Other' }, role: 'analyst' }
   ]
   const employeeThreeLevel = [
-    { client: { name: { first: 'Alice', last: 'Citizen' }, role: 'developer' }},
-    { client: { name: { first: 'Bob', last: 'Dole' } , role: 'developer' }},
-    { client: { name: { first: 'Alice', last: 'Other' }, role: 'analyst' }},
+    { client: { name: { first: 'Alice', last: 'Citizen' }, role: 'developer' } },
+    { client: { name: { first: 'Bob', last: 'Dole' }, role: 'developer' } },
+    { client: { name: { first: 'Alice', last: 'Other' }, role: 'analyst' } }
   ]
-
 
   test('Simple object with one level', () => {
     expect(filterBy(employeeOneLevel, 'role', 'developer')).toEqual([
@@ -36,7 +35,6 @@ describe('Array Filter By (filterBy)', () => {
   test('Simple object with two level with empty path', () => {
     expect(filterBy([], '', 'Alice')).toEqual([])
   })
-  
   test('Simple object with two level', () => {
     expect(filterBy(employeeTwoLevel, ['name', 'first'], 'Alice')).toEqual([
       { name: { first: 'Alice', last: 'Citizen' }, role: 'developer' },
@@ -54,8 +52,8 @@ describe('Array Filter By (filterBy)', () => {
 
   test('Simple object with three level', () => {
     expect(filterBy(employeeThreeLevel, ['client', 'name', 'first'], 'Alice')).toEqual([
-      { client: { name: { first: 'Alice', last: 'Citizen' }, role: 'developer' }},
-      { client: { name: { first: 'Alice', last: 'Other' }, role: 'analyst' }}
+      { client: { name: { first: 'Alice', last: 'Citizen' }, role: 'developer' } },
+      { client: { name: { first: 'Alice', last: 'Other' }, role: 'analyst' } }
     ])
   })
 

@@ -13,10 +13,10 @@ import get from '../accessors/get'
  *
  */
 export default function filterBy(array: object[], path: string | string[], value: any): object[] {
-  let result: object[] = array.filter((element) => {
+  let result: object[] = array.filter(element => {
     let copyPath = path
 
-    if(typeof path !== "string") {
+    if (typeof path !== 'string') {
       // If the path is an array, it copies the value because the get function modifies it
       copyPath = [...path]
     }
